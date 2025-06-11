@@ -1,0 +1,24 @@
+{
+  "name": "sprite-sheet-cep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakeRSA/sprite-sheet-cep.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakeRSA/sprite-sheet-cep/issues"
+  },
+  "homepage": "https://github.com/JakeRSA/sprite-sheet-cep#readme",
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "path": "^0.12.7",
+    "sharp": "^0.34.2"
+  }
+}
