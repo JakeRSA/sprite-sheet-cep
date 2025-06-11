@@ -51,37 +51,31 @@ function findNodePath() {
 function updateCompInfo() {
   cs.evalScript("getCompInfo()", (res) => {
     const info = JSON.parse(res);
-    document.getElementById("comp-info").textContent = `${
-      info.name
-    } (${Math.floor(info.frameCount)} frames)`;
+    document.getElementById("comp-name").textContent = `${info.name}`;
+    document.getElementById("frame-count").textContent = `${Math.floor(
+      info.frameCount
+    )} frames`;
   });
 }
 
 document.getElementById("export-button").addEventListener("click", () => {
-  cs.evalScript("renderFrames()", (params) => {
-    try {
-      const [renderPath, outputPath] = params.split(",");
-      const rootDir = cs.getSystemPath(SystemPath.EXTENSION);
-      const nodeScriptPath = rootDir + "/node/sprite-sheet.js";
-      const nodePath = findNodePath();
+  cs.evalScript("renderFrames()", (res) => {
+    const [renderPath, outputPath] = JSON.parse(res);
+    const rootDir = cs.getSystemPath(SystemPath.EXTENSION);
+    const nodeScriptPath = rootDir + "/node/sprite-sheet.js";
+    const nodePath = findNodePath();
 
-      const { spawn } = require("child_process");
-      const child = spawn(nodePath, [nodeScriptPath, renderPath, outputPath], {
-        stdio: "inherit",
-      });
-      child.on("error", (err) => {
-        alert("Error starting node script: " + err.message);
-      });
-      child.on("close", (code) => {
-        fs.rm(renderPath, { recursive: true, force: true }, (err) => {
-          alert(err);
-        });
-        alert(code === 0 ? "Export complete!" : "Export failed.");
-      });
-    } catch (e) {
-      alert("Error: " + e.message);
-      return;
-    }
+    const { spawn } = require("child_process");
+    const child = spawn(nodePath, [nodeScriptPath, renderPath, outputPath], {
+      stdio: "inherit",
+    });
+    child.on("error", (err) => {
+      alert("Error starting node script: " + err.message);
+    });
+    child.on("close", (code) => {
+      fs.rm(renderPath, { recursive: true, force: true });
+      alert(code === 0 ? "Export complete!" : "Export failed.");
+    });
   });
 });
 

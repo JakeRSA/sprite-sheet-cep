@@ -32,8 +32,6 @@ function renderFrames() {
   // TODO: add docs that user must add template - show alert if not found
   outputModule.applyTemplate("PNG Sequence");
 
-  // TODO: more error handling
-
   outputModule.file = new File(tempFolder + "/frame_[#####].png");
   item.render = true;
 
@@ -41,5 +39,5 @@ function renderFrames() {
 
   const userOutputFolder = getUserOutputFolder();
 
-  return [tempFolder, userOutputFolder];
+  return JSON.stringify([tempFolder, userOutputFolder]);
 }

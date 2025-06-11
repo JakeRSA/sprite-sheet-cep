@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ExtensionManifest ExtensionBundleId="com.lottie.sprite-sheet-exporter"
   ExtensionBundleVersion="1.0.0"
-  Version="7.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  Version="8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
     <Extension Id="com.lottie.sprite-sheet-exporter.panel" />
   </ExtensionList>
@@ -35,16 +35,16 @@
           <Menu>Sprite Sheet Exporter</Menu>
           <Geometry>
             <Size>
-              <Height>580</Height>
-              <Width>1000</Width>
+              <Height>100</Height>
+              <Width>250</Width>
             </Size>
             <MaxSize>
-              <Height>800</Height>
-              <Width>1200</Width>
+              <Height>500</Height>
+              <Width>500</Width>
             </MaxSize>
             <MinSize>
-              <Height>400</Height>
-              <Width>600</Width>
+              <Height>100</Height>
+              <Width>250</Width>
             </MinSize>
           </Geometry>
           <Icons />
