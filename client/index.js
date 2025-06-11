@@ -39,12 +39,10 @@ function findNodePath() {
     path.join(os.homedir(), "AppData\\Roaming\\nvm\\node.exe")
   );
 
-  // Check each path
   for (const nodePath of possiblePaths) {
     if (fs.existsSync(nodePath)) return nodePath;
   }
 
-  // Fallback: just "node" (relies on PATH)
   return "node";
 }
 
