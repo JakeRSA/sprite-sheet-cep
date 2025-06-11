@@ -29,8 +29,15 @@ function renderFrames() {
   const item = app.project.renderQueue.items.add(comp);
   const outputModule = item.outputModule(1);
 
-  // TODO: add docs that user must add template - show alert if not found
-  outputModule.applyTemplate("PNG Sequence");
+  try {
+    outputModule.applyTemplate("PNG Sequence");
+  } catch (e) {
+    alert(
+      "PNG Sequence template not found\n\n" +
+        "In order to process your composition, you must first create an output module template with the name 'PNG Sequence'.\n\n" +
+        "This template should have its output format set to 'PNG Sequence'"
+    );
+  }
 
   outputModule.file = new File(tempFolder + "/frame_[#####].png");
   item.render = true;
