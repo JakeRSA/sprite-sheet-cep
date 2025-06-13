@@ -6,9 +6,9 @@ This extension is compatible with After Effects version 15+. It adds a compositi
 
 - Ensure there is a valid install of Adobe After Effects version 15 or higher.
 
-- Clone this repo into any of the (extension directories)[https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_8.x/Documentation/CEP%208.0%20HTML%20Extension%20Cookbook.md#extension-folders] for Adobe After Effects.
+- Clone this repo into any of the [extension directories](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_8.x/Documentation/CEP%208.0%20HTML%20Extension%20Cookbook.md#extension-folders) for Adobe After Effects.
 
-- (Enable debug mode for CSXS12)[https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_12.x/Documentation/CEP%2012%20HTML%20Extension%20Cookbook.md#debugging-unsigned-extensions] to allow unsigned extensions.
+- [Enable debug mode for CSXS12](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_12.x/Documentation/CEP%2012%20HTML%20Extension%20Cookbook.md#debugging-unsigned-extensions) to allow unsigned extensions.
 
 - Run `nvm use` to use the correct node version.
 
