@@ -4,13 +4,6 @@ const path = require("path");
 const fs = require("fs");
 
 function findNodePath() {
-  // Common locations for macOS and Linux
-  const possiblePaths = [
-    "/usr/local/bin/node",
-    "/opt/homebrew/bin/node",
-    "/usr/bin/node",
-  ];
-
   // nvm: find highest version in ~/.nvm/versions/node/
   const nvmDir = path.join(os.homedir(), ".nvm/versions/node");
   if (fs.existsSync(nvmDir)) {
@@ -32,12 +25,17 @@ function findNodePath() {
     }
   }
 
-  // Windows default install
-  possiblePaths.push(
+  // if nvm version not found, check for global node installations
+  const possiblePaths = [
+    // macOS and Linux
+    "/usr/local/bin/node",
+    "/opt/homebrew/bin/node",
+    "/usr/bin/node",
+    // Windows
     "C:\\Program Files\\nodejs\\node.exe",
     "C:\\Program Files (x86)\\nodejs\\node.exe",
-    path.join(os.homedir(), "AppData\\Roaming\\nvm\\node.exe")
-  );
+    path.join(os.homedir(), "AppData\\Roaming\\nvm\\node.exe"),
+  ];
 
   for (const nodePath of possiblePaths) {
     if (fs.existsSync(nodePath)) return nodePath;
